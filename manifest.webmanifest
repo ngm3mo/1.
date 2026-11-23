@@ -1,0 +1,11 @@
+{
+  "name": "نور المعرفة",
+  "short_name": "نور المعرفة",
+  "start_url": "./",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#0a0f1e",
+  "theme_color": "#0a0f1e",
+  "description": "لعبة تعليمية عربية موثقة عن الأنبياء والسيرة والصحابة والغزوات"
+}
