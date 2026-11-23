@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a0f1e">
+<meta name="description" content="نور المعرفة — لعبة تعليمية عربية موثقة عن الأنبياء والسيرة والصحابة والغزوات">
+<link rel="manifest" href="manifest.webmanifest">
+<title>نور المعرفة | Noor Al-Ma'rifah</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="gameWrap">
+
+  <section class="screen" id="startScreen">
+    <h1>نور المعرفة</h1>
+    <div class="sub">اختبر معرفتك بالأنبياء والرسل، السيرة النبوية، والصحابة والخلفاء الراشدين.<br>٣ قلوب فقط... هل تصمد؟</div>
+    <button class="btn-primary" id="startBtn">ابدأ الرحلة</button><button class="source-btn" id="openSources">المصادر والمنهجية</button><button class="source-btn" id="openStats">إحصائياتي</button>
+  </section>
+
+
+  <section class="screen hidden" id="sourcesScreen">
+    <h2>المصادر والمنهجية</h2>
+    <div class="source-note">تم بناء الأسئلة من مصادر أصلية أو موسوعات توثيقية معروفة. وجود المصدر لا يعني أن كل صياغة خالية من كل خلاف؛ عند وجود اختلاف تاريخي نستخدم صياغة حذرة أو نذكره في الشرح.</div>
+    <div class="source-list">
+      <div class="source-card"><b>القرآن الكريم</b>المصدر الأول لآيات قصص الأنبياء والأحداث المذكورة في القرآن.<br><a href="https://quran.com/" target="_blank" rel="noopener">quran.com</a></div>
+      <div class="source-card"><b>الموسوعة الحديثية — الدرر السنية</b>للبحث في الأحاديث ومعرفة درجتها وشروحها.<br><a href="https://dorar.net/hadith" target="_blank" rel="noopener">dorar.net/hadith</a></div>
+      <div class="source-card"><b>الموسوعة التاريخية — الدرر السنية</b>للأحداث الزمنية في السيرة والخلافة والفتوحات.<br><a href="https://dorar.net/history" target="_blank" rel="noopener">dorar.net/history</a></div>
+      <div class="source-card"><b>المصادر الأصلية للسيرة النبوية</b>مقال تعريفي يوضح ترتيب مصادر السيرة وأهمية القرآن والسنة والكتب المعتمدة.<br><a href="https://islamonline.net/%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%AF%D8%B1-%D8%A7%D9%84%D8%A7%D8%B5%D9%84%D9%8A%D8%A9-%D9%84%D9%84%D8%B3%D9%8A%D8%B1%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%88%D9%8A%D8%A9/" target="_blank" rel="noopener">قراءة المنهج</a></div>
+    </div>
+    <button class="btn-secondary" id="backFromSources">رجوع</button>
+  </section>
+
+  <section class="screen hidden" id="statsScreen"><h2>إحصائياتي</h2><div class="stats-grid"><div class="stat-card"><b id="statAnswered">0</b><span>سؤال مجاب</span></div><div class="stat-card"><b id="statAccuracy">0%</b><span>الدقة</span></div><div class="stat-card"><b id="statBest">0</b><span>أفضل نتيجة</span></div><div class="stat-card"><b id="statMistakes">0</b><span>أسئلة للمراجعة</span></div></div><div class="source-note" id="statMessage">ابدأ اللعب لتظهر إحصائياتك.</div><button class="btn-secondary" id="backFromStats">رجوع</button></section>
+
+  <section class="screen hidden" id="categoryScreen">
+    <h2>اختر الفئة</h2>
+    <div class="sub">اختر طريقة اللعب ثم الفئة. لا يتكرر السؤال حتى تُستنفد قاعدة الأسئلة.</div><div class="mode-grid"><button class="mode-btn active" data-mode="classic"><b>كلاسيكي</b><small>10 أسئلة · 3 قلوب</small></button><button class="mode-btn" data-mode="time"><b>تحدي الوقت</b><small>15 سؤالًا · 10 ثوانٍ</small></button><button class="mode-btn" data-mode="daily"><b>اختبار اليوم</b><small>10 أسئلة ثابتة يوميًا</small></button><button class="mode-btn" data-mode="review"><b>مراجعة الأخطاء</b><small>أعد ما أخطأت فيه</small></button><button class="mode-btn" data-mode="perfect"><b>بدون أخطاء</b><small>قلب واحد · دقة كاملة</small></button></div>
+    <div class="category-grid">
+      <button class="cat-btn" data-cat="prophets"><span class="icon">🕊️</span> الأنبياء والرسل</button>
+      <button class="cat-btn" data-cat="seerah"><span class="icon">📜</span> السيرة النبوية</button>
+      <button class="cat-btn" data-cat="sahaba"><span class="icon">⭐</span> الصحابة والخلفاء</button>
+      <button class="cat-btn" data-cat="battles"><span class="icon">⚔️</span> الغزوات والفتوحات</button>
+    </div>
+    <button class="btn-secondary" id="backToStart">رجوع</button><button class="btn-secondary" id="resetBank" style="margin-top:10px">إعادة تدوير بنك الأسئلة</button>
+  </section>
+
+  <section class="screen hidden" id="gameScreen" style="justify-content:flex-start;padding:0">
+    <div class="hud">
+      <div class="hud-left">
+        <div class="hud-chip">النقاط <span class="val" id="scoreDisplay">0</span></div>
+        <div class="hud-chip" id="comboChip" style="display:none">🔥 x<span id="comboDisplay">1</span></div>
+      </div>
+      <div class="hud-right">
+        <div class="hearts" id="heartsDisplay">
+          <span class="heart">❤️</span><span class="heart">❤️</span><span class="heart">❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="q-area">
+      <div class="q-counter" id="qCounter">السؤال ١ من ١٠</div>
+      <div class="q-text" id="questionText">—</div>
+      <div class="timer-wrap"><div class="timer-bar" id="timerBar"></div></div>
+      <div class="options" id="optionsContainer"></div>
+    </div>
+    <div class="correction" id="correction">
+      <div class="correction-inner">
+        <div class="correction-title" id="correctionTitle">✔ إجابة صحيحة</div>
+        <div class="correction-correct-answer" id="correctionCorrect"></div>
+        <div class="correction-explanation" id="correctionExplanation"></div>
+        <div class="correction-others" id="correctionOthers"></div>
+        <div class="correction-source" id="correctionSource"></div>
+        <button class="correction-btn" id="correctionNext">التالي ←</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen hidden" id="resultScreen">
+    <h2 id="resultTitle">انتهت الجولة!</h2>
+    <div class="final-score" id="finalScoreDisplay">0</div>
+    <div class="best-line" id="bestLine">أفضل نتيجة: 0</div>
+    <div class="new-record" id="newRecord" style="display:none">✦ رقم قياسي جديد! ✦</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <button class="btn-primary" id="retryBtn">جولة جديدة</button>
+      <button class="btn-secondary" id="backToCategory">فئة أخرى</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
